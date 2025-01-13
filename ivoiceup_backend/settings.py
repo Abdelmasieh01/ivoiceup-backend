@@ -10,7 +10,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [config("RENDER_HOST")]
 
 
 # Application definition
@@ -117,6 +117,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    config("NEXTJS_HOST")
 ]
 
 AUTH_USER_MODEL = 'employees.Employee'
