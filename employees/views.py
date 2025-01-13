@@ -145,3 +145,7 @@ class AttendanceDetailView(APIView):
             return Response({"detail": "Attendance not found."}, status=status.HTTP_404_NOT_FOUND)
         attendance.delete()
         return Response({"detail": "Attendance record deleted."}, status=status.HTTP_204_NO_CONTENT)
+    
+class Ping(APIView):
+    def get(self, request):
+        return Response({"message": "Ping successfull!"}, status=status.HTTP_200_OK)

@@ -10,4 +10,5 @@ urlpatterns = [
     path("<int:pk>/update/", views.UpdateEmployeeView.as_view(), name="employee-edit"),
     path("attendance/", views.AttendanceListView.as_view(), name="attendance-list"),
     path("attendance/<int:pk>/", views.AttendanceDetailView.as_view(), name="attendance-detail"),   
+    path("ping/", views.Ping.as_view(), name="ping"),
 ]
