@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.db import IntegrityError
 from .serializers import EmployeeSerializer, CreateEmployeeSerializer, AttendanceSerializer
 from .models import Employee, Attendance
@@ -147,5 +148,6 @@ class AttendanceDetailView(APIView):
         return Response({"detail": "Attendance record deleted."}, status=status.HTTP_204_NO_CONTENT)
     
 class Ping(APIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     def get(self, request):
         return Response({"message": "Ping successfull!"}, status=status.HTTP_200_OK)
