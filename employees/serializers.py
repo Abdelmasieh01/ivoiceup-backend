@@ -3,13 +3,6 @@ from rest_framework.exceptions import ValidationError
 from rest_framework import serializers
 from .models import Employee, Attendance
 
-class CustomLoginSerializer(LoginSerializer):
-    def validate(self, attrs):
-        user = self.get_auth_user(attrs)
-        if user.group != 'HR':
-            raise ValidationError("Only HR employees can access the system.")
-        return super().validate(attrs)
-
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee

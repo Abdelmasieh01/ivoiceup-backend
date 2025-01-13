@@ -10,7 +10,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [config("RENDER_HOST")]
+ALLOWED_HOSTS = ["localhost", config("RENDER_HOST")]
 
 
 # Application definition
@@ -133,6 +133,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'employees.serializers.CustomLoginSerializer',
+REST_AUTH = {
+    'USER_DETAILS_SERIALIZER': 'employees.serializers.EmployeeSerializer',
 }
